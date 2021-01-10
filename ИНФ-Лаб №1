@@ -1,0 +1,89 @@
+1.1
+Float
+#include<iostream>
+#include<math.h>
+
+using namespace std;
+
+
+int main()
+{
+	float b = 0.001, c1, c2, c3, c4, c5, a = 100;
+	c1 = pow(a, 4);
+	c2 = pow(b, 4);
+	c3 = pow(a, 2);
+	c4 = pow(b, 2);
+	c5 = pow(b, 3);
+	cout << ((c1 + c2) - (c1 + 4 * c1 * b)) / (6 * c3 * c4 + 4 * a * c5 + c2);
+	return 0;
+
+}
+ 
+ Double
+#include<iostream>
+#include<math.h>
+
+using namespace std;
+
+
+int main()
+{
+	double b = 0.001, c1, c2, c3, c4, c5, a = 100;
+	c1 = pow(a, 4);
+	c2 = pow(b, 4);
+	c3 = pow(a, 2);
+	c4 = pow(b, 2);
+	c5 = pow(b, 3);
+	cout << ((c1 + c2) - (c1 + 4 * c1 * b)) / (6 * c3 * c4 + 4 * a * c5 + c2);
+	return 0;
+
+}
+1.2
+++n*++m
+#include<iostream>
+#include<math.h>
+
+using namespace std;
+
+
+int main()
+{
+	int n=1,m=1 ;
+	cout << ++n*++m;
+	return 0;
+
+}
+
+m++<n
+#include <iostream>
+#include <Windows.h>
+
+int main()
+{
+	float n, m;
+	setlocale(0, "");
+	std::cout << "\n Введите n: ";
+	std::cin >> n;
+	std::cout << "\n Введите m: ";
+	std::cin >> m;
+	std::cout << "\nЗначение выражения m++<n = " << (m++ < n);
+	std::cout << "\n";
+	system("PAUSE");
+}
+
+n++>m
+#include <iostream>
+#include <Windows.h>
+
+int main()
+{
+	float n, m;
+	setlocale(0, "");
+	std::cout << "\n Введите n: ";
+	std::cin >> n;
+	std::cout << "\n Введите m: ";
+	std::cin >> m;
+	std::cout << "\nЗначение выражения m++<n = " << (m++ > n);
+	std::cout << "\n";
+	system("PAUSE");
+}
