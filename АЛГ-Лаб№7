@@ -1,0 +1,79 @@
+7.1
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+float sum(float a, float b)
+{
+    return a + b;
+}
+
+double sum(double a, double b)
+{
+    return a + b;
+}
+
+int main(int argc, char* argv[])
+{
+    float a, b;
+    double e, e1, d, d1;
+    cout << "int a= ";
+    cin >> a;
+    cout << "int b= ";
+    cin >> b;
+
+    cout << "razn " << sum (a, b) << endl;
+
+    cout << "double e= ";
+    cin >> e;
+    cout << "double e1= ";
+    cin >> e1;
+    cout << "double d= ";
+    cin >> d;
+    cout << "double d1= ";
+    cin >> d1;
+    cout << "sum " << sum((e, e1), (d / d1)) << endl;
+
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
+7.2
+#include <cstdlib>
+#include <cstdarg>
+
+namespace
+{
+    template<unsigned int Count, typename T>
+    const T& max(const T& first, ...)
+    {
+        T result = first;
+        T crt;
+
+        va_list vl;
+        va_start(vl, first);
+        for (unsigned int i = 0; i < Count - 1; ++i)
+        {
+            crt = va_arg(vl, T);
+            if (crt < result)
+                result = crt;
+        }
+
+        va_end(vl);
+
+        return result;
+    }
+}
+
+int main()
+{
+    int i5[5] = { 1, 2, 3, 4, 5 };
+    double d10[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    float f12[12] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+    int mi = max<5>(i5[0], i5[1], i5[2], i5[3], i5[4]);
+    double md = max<10>(d10[0], d10[1], d10[2], d10[3], d10[4], d10[5],
+        d10[6], d10[7], d10[8], d10[9]);
+    float mf = max<12>(f12[0], f12[1], f12[2], f12[3], f12[4], f12[5],
+        f12[6], f12[7], f12[8], f12[9], f12[10], f12[11]);
+    return EXIT_SUCCESS;
+}
