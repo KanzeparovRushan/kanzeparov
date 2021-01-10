@@ -1,0 +1,29 @@
+#include<iostream>
+#include<sstream>
+#include<fstream>
+#include<string>
+using namespace std;
+int main(){int i; string s,sm,ins,outs;
+setlocale(LC_ALL, "Russian");
+cout<<"Имя входного файла: ";
+cin>>ins; ifstream ifs(ins);if(ifs.fail())
+{cerr<<"Ошибка открытия входного файла "<<endl;
+cin.get();	
+return 1;
+}cout<<"Name of the output file: ";
+cin>>outs; ofstream ofs(outs);
+cout<<endl;while(getline(ifs,s))
+{istringstream ist(s);
+for(i=0;ist>>sm;i++); 
+if(i==1)ofs<<s<<'\n';
+}ifs.close();
+ofs.close(); ifstream kfs(outs);
+sm.clear(); 
+while(kfs>>s)
+if(s.length()>sm.length())sm=s;
+kfs.close();
+cout<<sm<<endl;
+cout<<"\nPress Enter to exit\n";
+cin.get();
+cin.get();
+}
