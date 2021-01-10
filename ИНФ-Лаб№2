@@ -1,0 +1,22 @@
+#include <cstdlib>
+#include <iostream>
+#include <math.h>
+#define E 0.0001 //точность
+int main(int argc, char* argv[]) {
+    int main()
+    double s = 0, a = 1;
+    int n = 1;
+  int i;
+  int res;
+  res = 1;
+  for (i = 1; i <= n; i++) {
+	res = res * i;
+  }
+	do {
+		a *= pow(10,n) / res; //расчет следующего числа ряда по рекуррентной формуле
+		s += a; n++;
+	}
+	while (a < E); //выход из цикла при достижении нужной точности
+	printf("SumRow:%f\n", s);
+	system("PAUSE");
+	return EXIT_SUCCESS;}
