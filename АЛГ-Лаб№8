@@ -6,12 +6,12 @@ using namespace std;
 struct Buyer { //создание структуры
     char name[50];
     char address[50];
-    char telephone[50];
+    char medc[50];
     char card[50];
 };
 FILE* db;  //указатель, связанный с файлом
 FILE* db2; //указатель, связанный с файлом
-Buyer man; //элемент структуры
+Buyer pacient; //элемент структуры
 Buyer arr[5]; //массив для хранения элементов структуры
 
 void write() {
@@ -24,18 +24,18 @@ void write() {
     for (int i = 1; i <= 5; i++) {
         cout << i << " Пациент: \n";
         printf("Введите ФИО: ");
-        gets_s(man.name);
-        OemToCharA(man.name, man.name); //преобразование для вывода кириллицы
+        gets_s(pacient.name);
+        OemToCharA(pacient.name,pacient.name); //преобразование для вывода кириллицы
         printf("Введите адрес: ");
-        gets_s(man.address);
-        OemToCharA(man.address, man.address); //преобразование для вывода кириллицы
+        gets_s(pacient.address);
+        OemToCharA(pacient.address,pacient.address); //преобразование для вывода кириллицы
         printf("Номер мед.карты: ");
-        gets_s(man.medc);
-        OemToCharA(man.medc, man.medc); //преобразование для вывода кириллицы
+        gets_s(pacient.medc);
+        OemToCharA(pacient.medc, pacient.medc); //преобразование для вывода кириллицы
         printf("Введите номер страх карты: ");
-        gets_s(man.card);
-        OemToCharA(man.card, man.card); //преобразование для вывода кириллицы
-        fwrite(&man, sizeof(Buyer), 1, db);
+        gets_s(pacient.card);
+        OemToCharA(pacient.card,pacient.card); //преобразование для вывода кириллицы
+        fwrite(&pacient, sizeof(Buyer), 1, db);
         //проверка файла
         if (ferror(db) != NULL) {
             printf("Ошибка файла");
@@ -75,7 +75,7 @@ void deleted() {
     }
     for (int i = 1; !feof(db) && i <= 5; i++) { //цикл для чтения всех записей файла 1
         fread(&arr[i], sizeof(Buyer), 1, db);
-        if (i >= 4) {   //начиная с 4 элемента (т.к. первые 3 необходимо удалить) запись в фаил 2
+        if (i = i) {  
             fwrite(&arr[i], sizeof(Buyer), 1, db2);
         }
         if (ferror(db) != NULL) {
@@ -92,22 +92,22 @@ void add() {
         printf("Ошибка чтения файла");
         exit(6);
     }
-    //добавление в фаил 3-х элементов
+    //добавление в фаил 2-х элементов
     for (int i = 6; i <= 8; i++) {
         cout << i << " человек: \n";
         printf("Введите ФИО: ");
-        gets_s(man.name);
-        OemToCharA(man.name, man.name);
+        gets_s(pacient.name);
+        OemToCharA(pacient.name, pacient.name);
         printf("Введите адрес: ");
-        gets_s(man.address);
-        OemToCharA(man.address, man.address);
+        gets_s(pacient.address);
+        OemToCharA(pacient.address, pacient.address);
         printf("Номер мед.карты: ");
-        gets_s(man.medc);
-        OemToCharA(man.medc, man.medc);
+        gets_s(pacient.medc);
+        OemToCharA(pacient.medc, pacient.medc);
         printf("Введите номер страх карты: ");
-        gets_s(man.card);
-        OemToCharA(man.card, man.card);
-        fwrite(&man, sizeof(Buyer), 1, db2);
+        gets_s(pacient.card);
+        OemToCharA(pacient.card, pacient.card);
+        fwrite(&pacient, sizeof(Buyer), 1, db2);
         if (ferror(db) != NULL) {
             printf("Ошибка файла");
             exit(2);
@@ -123,8 +123,9 @@ int main()
     write(); //вызов функции
     cout << '\n';
     read();   //вызов функции
-    cout << "\n\n\nУдаление первых 3-х элементов структуры\n";
+    cout << "\nУдаление элемента с заданным номером медицинской карты\n";
     deleted();  //вызов функции
-    cout << "Добавление 3-х элементов структуры в конец файла\n\n";
+    cout << "\n\nДобавление 2-х элементов структуры в начало файла";
     add();  //вызов функции
     system("pause");
+}
